@@ -1,5 +1,3 @@
-import { rejects } from "node:assert";
-import { resolve } from "node:path";
 
 // Definir variables
 //let greeting: string = "hello";
