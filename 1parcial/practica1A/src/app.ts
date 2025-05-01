@@ -1,8 +1,8 @@
-// ===== Variables =====
+// Variables
 const sistemaNombre: string = "Asistente ExpoInteligente";
 let alertasRegistradas: number = 0;
 
-// ===== Interfaces =====
+// Interfaces 
 interface ParametroIdeal {
     id_parametro: number;
     tipo: string;
@@ -79,15 +79,3 @@ async function flujoPrincipal(): Promise<void> {
     console.log(resultado);
 }
 
-// Ejecución
-console.log("=== INICIO ===");
-registrarAlertas(...nuevasAlertas);
-mostrarAlertas(alertas);
-flujoPrincipal();
-
-/* Salida Esperada:
-=== INICIO ===
-[2025-05-01] Slide 3: Tiempo excedido (130s)
-Procesada: Slide 3: Tiempo excedido (130s)
-Alerta #3 guardada
-*/
