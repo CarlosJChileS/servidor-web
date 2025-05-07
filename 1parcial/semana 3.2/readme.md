@@ -15,7 +15,10 @@ en src crear carpeta models y de ahi user.ts
     // "jsx": "preserve",                                /* Specify what JSX code is generated. */
     // "libReplacement": true,                           /* Enable lib replacement. */
     "experimentalDecorators": true,                   /* Enable experimental support for legacy experimental decorators. */
-    "emitDecoratorMetadata": true,                    
-    se crea data-source.ts en src
-    de ahi se crea database.ts 
-    en src se crea crud.ts
+    "emitDecoratorMetadata": true, 
+
+
+### se crea data-source.ts en src
+### de ahi se crea database.ts 
+### en src se crea crud.ts
+## se aplica las importaciones y ejecuta en app.ts
