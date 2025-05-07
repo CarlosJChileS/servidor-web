@@ -1,0 +1,27 @@
+
+{
+    "id": 5,
+    "nombre" : "Juan Petro",
+    "tutor" : {
+        "id": 2,
+        "identificaion": "121212",
+        "nombre": "Pedro Piguave"
+    },
+    "notas": [
+        {"asignatura": "mate", "nota": 5 },
+        {"asignatura": "lengua", "nota": 8 }
+    ],
+    "direccion": {
+        "detalle": "calle 115",
+        "ciudad": {
+            "nombre": "Manta",
+            "provincia": {
+
+            }
+        }
+    }
+
+    
+}
+
+

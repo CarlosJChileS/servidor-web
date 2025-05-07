@@ -1,0 +1,19 @@
+{ 
+    "factura":{
+        "numero": "f12345",
+        "cliente":{
+            "nombre" : "Carlos Chile"
+        },
+        "notas": [
+            {" descripcion": 10 , "cantidad": 2, "precio": 25.00}
+
+        ],
+        "total": 90
+
+            
+    }
+}
+
+
+
+

@@ -1,0 +1,10 @@
+{
+    "Estudante": {
+        "nombre": "oscar",
+        "apellido" : "meza",
+        "carrera": "Software",
+    "notas": [
+        {"Matematicas":10,"lengua":8,"ingles": 6}
+    ]
+    }
+}
