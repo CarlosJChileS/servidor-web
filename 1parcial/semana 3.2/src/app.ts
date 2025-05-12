@@ -10,7 +10,7 @@ import { CrearVista } from './crud';
 async function main() {
     await initDatabase()
     const newUser = await insertarUser("walter"," walterG@gmail.com")
-    console.log(newUser.id);
+    console.log(newUser);
     
     //
     const vista = await CrearVista("vista Reporte de Productos", newUser.id);
@@ -29,8 +29,8 @@ async function main() {
     console.log(userupdated);
 
     // para eliminar un usuario
-    const userdeleted = await eliminarUser(newUser.id);
-    console.log(userdeleted);
+    //const userdeleted = await eliminarUser(newUser.id);
+    //console.log(userdeleted);
    
 
 }
