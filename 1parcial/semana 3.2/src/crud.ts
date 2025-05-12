@@ -50,3 +50,12 @@ export const CrearVista = async (vista: string, userId: number) => {
     }
     return null
 }
+
+//eliminar vista
+export const viewdelete = async (id: number) =>{
+    const view1 = await AppDataSource.manager.findOne(view,{where:{id}})
+    if (view1){
+        return await AppDataSource.manager.remove(view1)
+    }
+    return null
+}
