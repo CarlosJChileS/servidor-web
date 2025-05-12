@@ -22,3 +22,4 @@ en src crear carpeta models y de ahi user.ts
 ### de ahi se crea database.ts 
 ### en src se crea crud.ts
 ## se aplica las importaciones y ejecuta en app.ts
+## continuacion del crud

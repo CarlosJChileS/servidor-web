@@ -22,6 +22,18 @@ export const obtenerUser = async (id: number) => {
 // Funcion para actualizar un usuario
 export const actualizarUser = async (id: number, nombre: string, correo: string) => { 
     const user2 = await obtenerUser(id);
- 
-
+    if (user2) {
+        user2.correo = correo;
+        user2.nombre = nombre;
+        return await AppDataSource.manager.save(user2);
+    }
+    return null;
+}
+// Función para eliminar un usuario
+export const eliminarUser = async (id:number) => {
+    const user2 = await obtenerUser(id);
+    if (user2) {
+        return await AppDataSource.manager.remove(user2);
+    }
+    return null
 }
