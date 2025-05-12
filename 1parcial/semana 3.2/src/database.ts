@@ -1,6 +1,10 @@
 import {AppDataSource} from "./data-source"
 import 'reflect-metadata';
 
+
+
+// Función para inicializar la base de datos
+// Esta función se encargará de establecer la conexión con la base de datos
 export const initDatabase = async () => {
     try {
         // await AppDataSource.initialize();
