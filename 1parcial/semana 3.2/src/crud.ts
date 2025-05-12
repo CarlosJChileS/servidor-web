@@ -1,5 +1,6 @@
 import {user} from "./models/user";
 import {AppDataSource} from './data-source';
+import {view} from "./models/view";
 
 // Funciones CRUD para la entidad User
 export const insertarUser = async (nombre: string, correo: string) => {
@@ -34,6 +35,18 @@ export const eliminarUser = async (id:number) => {
     const user2 = await obtenerUser(id);
     if (user2) {
         return await AppDataSource.manager.remove(user2);
+    }
+    return null
+}
+
+
+export const CrearVista = async (vista: string, userId: number) => {
+    const user1 = await obtenerUser(userId);
+    if (user1) {
+        const newview = new view();
+        newview.vista = vista;
+        newview.user = user1;
+    return await AppDataSource.manager.save(newview);
     }
     return null
 }

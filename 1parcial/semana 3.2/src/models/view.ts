@@ -5,8 +5,6 @@ export class view{
     @PrimaryGeneratedColumn()
     id!: number;
     @Column()
-    nombre!: string;
-    @Column()
     vista!: string;
     @ManyToOne(() => user, (user:user) => user.vistas)
     user!: user;
