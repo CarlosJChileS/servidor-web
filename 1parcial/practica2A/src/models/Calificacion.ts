@@ -1,23 +1,24 @@
-
+// models/Calificacion.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 import { Grabacion } from "./Grabacion";
-import { DetalleCalificacion } from "./DetalleCalificacion";
 import { Evaluador } from "./Evaluador";
+import { DetalleCalificacion } from "./DetalleCalificacion"; // Importación añadida
 
 @Entity()
 export class Calificacion {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @ManyToOne(() => Grabacion, (grabacion) => grabacion.calificaciones, { onDelete: "CASCADE" })
+  @ManyToOne(() => Grabacion, grabacion => grabacion.calificaciones)
   grabacion!: Grabacion;
 
-  @ManyToOne(() => Evaluador, (evaluador) => evaluador.calificaciones, { onDelete: "SET NULL", nullable: true })
+  @ManyToOne(() => Evaluador, evaluador => evaluador.calificaciones)
   evaluador!: Evaluador;
 
   @Column("float")
   notaFinal!: number;
 
-  @OneToMany(() => DetalleCalificacion, (detalle) => detalle.calificacion, { cascade: true })
+  // Relación OneToMany añadida
+  @OneToMany(() => DetalleCalificacion, detalle => detalle.calificacion)
   detalles!: DetalleCalificacion[];
 }

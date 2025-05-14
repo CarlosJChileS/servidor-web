@@ -6,15 +6,17 @@ export class Evaluador {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column()
+  @Column({ length: 100 })
   nombre!: string;
 
-  @Column()
+  @Column({ length: 255, unique: true })
   correo!: string;
 
-  @Column()
+  @Column({ length: 100 })
   especialidad!: string;
 
-  @OneToMany(() => Calificacion, (calificacion) => calificacion.evaluador)
+  @OneToMany(() => Calificacion, (calificacion) => calificacion.evaluador, {
+    onDelete: "SET NULL"
+  })
   calificaciones!: Calificacion[];
 }

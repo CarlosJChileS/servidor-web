@@ -1,99 +1,53 @@
 import { AppDataSource } from "./data-source";
-import { initDatabase } from "./database";
-import { 
-    insertarGrabacion, obtenerGrabaciones, obtenerGrabacion, actualizarGrabacion, eliminarGrabacion 
-} from "./cruds/Grabacion";
-import { 
-    insertarEvaluador, obtenerEvaluadores, obtenerEvaluador, actualizarEvaluador, eliminarEvaluador 
-} from "./cruds/Evaluador";
-import { 
-    insertarCalificacion, obtenerCalificaciones, obtenerCalificacion, eliminarCalificacion 
-} from "./cruds/Calificacion";
-import { 
-    insertarCriterioEvaluacion, obtenerCriterioEvaluacion 
-} from "./cruds/CriterioEvaluacion";
-import { 
-    insertarDetalleCalificacion, obtenerDetallesCalificacion 
-} from "./cruds/DetalleCalificacion";
+import { Calificacion } from "./models/Calificacion";
+import { CriterioEvaluacion } from "./models/CriterioEvaluacion";
+import { DetalleCalificacion } from "./models/DetalleCalificacion";
+import { Evaluador } from "./models/Evaluador";
+import { Grabacion } from "./models/Grabacion";
 
-// Función principal para ejecutar operaciones CRUD
 async function main() {
-    try {
-        await initDatabase();
-        console.log("La base de datos está conectada exitosamente.");
+  // Configurar conexión
+  await AppDataSource.initialize();
+  
+  // Crear evaluador
+  const evaluador = new Evaluador();
+  evaluador.nombre = "Sistema IA";
+  evaluador.correo = "ia@exposia.com";
+  await AppDataSource.manager.save(evaluador);
 
-        // 1. Subida de Presentación
-        const nuevaGrabacion = await insertarGrabacion(
-            "Impacto de la Inteligencia Artificial en la Educación",
-            "Presentación sobre cómo la IA transforma la enseñanza y el aprendizaje.",
-            new Date(),
-            "presentacion_ia.pdf"
-        );
-        console.log("Presentación subida:", nuevaGrabacion);
+  // Crear criterios
+  const criterio1 = new CriterioEvaluacion();
+  criterio1.nombre = "Claridad";
+  criterio1.descripcion = "Rango ideal: 7.0 - 10.0";
+  await AppDataSource.manager.save(criterio1);
 
-        // 2. Obtener todas las grabaciones
-        const grabaciones = await obtenerGrabaciones();
-        console.log("Lista de grabaciones:", grabaciones);
+  // Crear grabación
+  const grabacion = new Grabacion();
+  grabacion.titulo = "Presentación sobre IA";
+  grabacion.descripcion = "Práctica de Ana";
+  grabacion.fecha = new Date();
+  grabacion.url = "grabacion.mp3";
+  await AppDataSource.manager.save(grabacion);
 
-        // 3. Insertar un nuevo evaluador
-        const nuevoEvaluador = await insertarEvaluador(
-            "Carlos Mendoza",
-            "carlos.mendoza@example.com",
-            "Especialista en comunicación"
-        );
-        console.log("Evaluador insertado:", nuevoEvaluador);
+  // Crear calificación
+  const calificacion = new Calificacion();
+  calificacion.notaFinal = 9.0;
+  calificacion.grabacion = grabacion;
+  calificacion.evaluador = evaluador;
+  await AppDataSource.manager.save(calificacion);
 
-        // 4. Obtener todos los evaluadores
-        const evaluadores = await obtenerEvaluadores();
-        console.log("Lista de evaluadores:", evaluadores);
+  // Crear detalle
+  const detalle = new DetalleCalificacion();
+  detalle.puntuacion = 8.5;
+  detalle.calificacion = calificacion;
+  detalle.criterio = criterio1;
+  await AppDataSource.manager.save(detalle);
 
-        // 5. Insertar una calificación
-        const nuevaCalificacion = await insertarCalificacion(
-            9.0,
-            nuevaGrabacion.id,
-            nuevoEvaluador.id
-        );
-        console.log("Calificación insertada:", nuevaCalificacion);
-
-        // 6. Insertar un criterio de evaluación
-        const nuevoCriterio = await insertarCriterioEvaluacion(
-            "Claridad",
-            "Evaluación de la claridad del discurso."
-        );
-        console.log("Criterio insertado:", nuevoCriterio);
-
-        // 7. Obtener un criterio de evaluación específico
-        const criterioObtenido = await obtenerCriterioEvaluacion(nuevoCriterio.id);
-        console.log("Criterio obtenido:", criterioObtenido);
-
-        // 8. Insertar un detalle de calificación
-        const nuevoDetalleCalificacion = await insertarDetalleCalificacion(
-            8.5,
-            nuevaCalificacion.id,
-            nuevoCriterio.id
-        );
-        console.log("Detalle de calificación insertado:", nuevoDetalleCalificacion);
-
-        // 9. Obtener todos los detalles de calificación
-        const detallesCalificacion = await obtenerDetallesCalificacion();
-        console.log("Lista de detalles de calificación:", detallesCalificacion);
-
-        // 10. Eliminar una grabación
-        const grabacionEliminada = await eliminarGrabacion(nuevaGrabacion.id);
-        console.log("Grabación eliminada:", grabacionEliminada);
-
-        // 11. Eliminar una calificación
-        const calificacionEliminada = await eliminarCalificacion(nuevaCalificacion.id);
-        console.log("Calificación eliminada:", calificacionEliminada);
-
-        // 12. Eliminar un evaluador
-        const evaluadorEliminado = await eliminarEvaluador(nuevoEvaluador.id);
-        console.log("Evaluador eliminado:", evaluadorEliminado);
-
-    } catch (error) {
-        console.error("Error al ejecutar la aplicación:", error);
-    }
+  // Mostrar resultados
+  console.log("✅ Evaluador creado:", evaluador);
+  console.log("🎙️ Grabación registrada:", grabacion);
+  console.log("⭐ Calificación:", calificacion);
+  console.log("🔍 Detalle:", detalle);
 }
 
-// Ejecutar la función principal
-main();
+main().catch(error => console.error(error));

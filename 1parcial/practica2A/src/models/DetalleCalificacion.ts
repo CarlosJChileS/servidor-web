@@ -1,18 +1,19 @@
+// models/DetalleCalificacion.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { Calificacion } from "./Calificacion";
 import { CriterioEvaluacion } from "./CriterioEvaluacion";
 
 @Entity()
-export class DetalleCalificacion {
+export class DetalleCalificacion { // Nombre corregido
   @PrimaryGeneratedColumn()
-  id!: number;
+  id!: number; // Nombre estándar
 
-  @ManyToOne(() => Calificacion, (calificacion) => calificacion.detalles, { onDelete: "CASCADE" })
-  calificacion!: Calificacion;
+  @ManyToOne(() => Calificacion, calificacion => calificacion.detalles)
+  calificacion!: Calificacion; // Nombre corregido
 
-  @ManyToOne(() => CriterioEvaluacion, (criterio) => criterio.detalles, { onDelete: "SET NULL", nullable: true })
-  criterio!: CriterioEvaluacion;
+  @ManyToOne(() => CriterioEvaluacion, criterio => criterio.detalles)
+  criterio!: CriterioEvaluacion; // Nombre corregido
 
   @Column("float")
-  puntuacion!: number;
+  puntuacion!: number; // Nombre estándar
 }
