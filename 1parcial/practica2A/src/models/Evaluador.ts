@@ -7,13 +7,13 @@ export class Evaluador {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ name: "nombre", length: 100 }) // <-- Nombre correcto de la columna
+  @Column({ name: "nombre", length: 100 }) 
   nombre!: string;
 
-  @Column({ name: "correo", length: 255, unique: true })
+  @Column({ name: "correo", length: 255,  })
   correo!: string;
 
-  @Column({ name: "especialidad", length: 100, nullable: false }) // <-- Campo obligatorio
+  @Column({ name: "especialidad", length: 100, })
   especialidad!: string;
 
   @OneToMany(() => Calificacion, (calificacion) => calificacion.evaluador)
