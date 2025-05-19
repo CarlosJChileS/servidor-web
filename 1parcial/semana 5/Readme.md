@@ -36,4 +36,7 @@ Basado en HTTP Accede y modifica recursos mediante URLs
 - post
 - put
 - patch 
-Crear un servidor REST con Express.js
+# Crear un servidor REST con Express.js
+# Crud con Express.js
+## Validacion , sanitizacion y CORS
+valiDAcion
