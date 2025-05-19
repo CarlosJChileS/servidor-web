@@ -28,5 +28,12 @@ Basado en HTTP Accede y modifica recursos mediante URLs
 ## Principios RESTful  diseno de rutas
 - *  Interfaz uniforme: Operaciones consistentes
 - - * * sin estado(stateless): Cada peticion es independiente
-- - * * * URL como recursos: /usuarios, /productos/1/comentarios
+- - * * * URL como recursos: /usuarios(localhost:2000/api/usuarios), /productos/1/comentarios
 - - * * * * Versionameinto: /api/v1/ para evolucion controlada
+## Metodos HTPP EN REST
+- get
+- delete
+- post
+- put
+- patch 
+Crear un servidor REST con Express.js
