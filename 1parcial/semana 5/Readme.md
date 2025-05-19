@@ -25,3 +25,8 @@ Basado en HTTP Accede y modifica recursos mediante URLs
 - Formatos de datos: JSON o XML como estandares
 - Codigo de estado: 200 (ok), 404( No enconrado), 500(Error)
 - Modelo Cliente-servidor: Sepearacion clara de responsabilidades
+## Principios RESTful  diseno de rutas
+- *  Interfaz uniforme: Operaciones consistentes
+- - * * sin estado(stateless): Cada peticion es independiente
+- - * * * URL como recursos: /usuarios, /productos/1/comentarios
+- - * * * * Versionameinto: /api/v1/ para evolucion controlada
