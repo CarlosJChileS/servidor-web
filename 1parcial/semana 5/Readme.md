@@ -11,4 +11,17 @@
 - Webhook se usa para los pagos
 ![Diagrama de arquitectura](./arquitectura.jpg)
 ![Animación demostrativa](./e6626ab7-ffda-4bec-b2ed-1ae626df5e7e_644x848.gif)
-
+- arquitectura de microservisos y soa son agnosticas pueden estar desarrollados en diferentes tecnologias
+- arquitectura monolitico tiene solo un punto de entrada
+# Que es un Servicio REST?
+Basado en HTTP Accede y modifica recursos mediante URLs
+- Estilo arquitectonico: Disenado para construir APIs web modernas
+- Estructura de rutas/recursos agnostico
+- Ampliamente adoptado: ligero y altamente escalable
+* API: puente
+* API REST: se basa en tipo de recursos, puede ser una imagen , datos, documentos
+## Fundamentos web para REST
+- HTTP y sus metodos: GET, POST, PUT, DELETE, PATCH
+- Formatos de datos: JSON o XML como estandares
+- Codigo de estado: 200 (ok), 404( No enconrado), 500(Error)
+- Modelo Cliente-servidor: Sepearacion clara de responsabilidades
