@@ -1,4 +1,3 @@
-import { ParametrosIdeales } from './ParametrosIdeales.entity';
 
 export class Calificacion {
   constructor(
