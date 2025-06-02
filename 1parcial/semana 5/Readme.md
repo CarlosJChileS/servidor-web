@@ -40,3 +40,17 @@ Basado en HTTP Accede y modifica recursos mediante URLs
 # Crud con Express.js
 ## Validacion , sanitizacion y CORS
 valiDAcion
+# Seguridad con JWT y Oauth
+## jwt
+autenticacion sin estado mediante tokens en cabeceras:
+- firma criptografica
+- payload con informacion
+- expiracion configurable
+Oauth 2.0
+- Autorizacion delegadad de terseros
+
+#instalar 
+npm init --y
+de ahi typescript
+ npm i --save-dev @types/express
+ 
