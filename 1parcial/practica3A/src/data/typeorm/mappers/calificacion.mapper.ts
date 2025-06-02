@@ -6,22 +6,22 @@ export class CalificacionTypeOrm {
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @Column()
+    @Column({ type: 'int' })
     grabacionId!: number;
 
-    @Column({ nullable: true })
+    @Column({ type: 'int', nullable: true })
     usuarioId!: number | null;
 
-    @Column('decimal')
+    @Column('decimal', { precision: 3, scale: 1 })
     puntajeGlobal!: number;
 
-    @Column()
+    @Column({ type: 'text' })
     observacionGlobal!: string;
 
-    @Column()
+    @Column({ type: 'varchar' })
     tipoCalificacion!: string;
 
-    @Column()
+    @Column({ type: 'timestamp' })
     fecha!: Date;
 
     // Métodos de mapeo

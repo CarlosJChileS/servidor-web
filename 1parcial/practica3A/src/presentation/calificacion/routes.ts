@@ -4,20 +4,21 @@ import { DatasourceConfig, DatasourceType } from '../../infrastructure/datasourc
 import { CalificacionRepositoryImpl } from '../../infrastructure/repositories/calificacion.repository.impl';
 
 export class CalificacionRoutes {
-  static get routes(): Router {
-    const router = Router();
+    static get routes(): Router {
+        const router = Router();
 
-    // Elige el datasource y crea el repo concreto
-    const datasource = DatasourceConfig.getDatasource(DatasourceType.TYPEORM); // O el otro ORM si quieres cambiar
-    const calificacionRepository = new CalificacionRepositoryImpl(datasource);
-    const calificacionController = new CalificacionController(calificacionRepository);
+        // Usar el datasource configurado (por ejemplo, TYPEORM o SEQUELIZE)
+        const datasource = DatasourceConfig.getDatasource(DatasourceType.TYPEORM);
+        const calificacionRepository = new CalificacionRepositoryImpl(datasource);
+        
+        const calificacionController = new CalificacionController(calificacionRepository);
 
-    router.get('/', calificacionController.getCalificaciones);
-    router.get('/:id', calificacionController.getCalificacionById);
-    router.post('/', calificacionController.createCalificacion);
-    router.put('/:id', calificacionController.updateCalificacion);
-    router.delete('/:id', calificacionController.deleteCalificacion);
+        router.get('/', calificacionController.getCalificaciones);
+        router.get('/:id', calificacionController.getCalificacionById);
+        router.post('/', calificacionController.createCalificacion);
+        router.put('/:id', calificacionController.updateCalificacion);
+        router.delete('/:id', calificacionController.deleteCalificacion);
 
-    return router;
-  }
+        return router;
+    }
 }

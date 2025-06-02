@@ -1,35 +1,30 @@
 import {
   CreateCalificacionDto,
-  UpdateCalificacionDto,
-  CalificacionEntity,
+  Calificacion,
   CalificacionDatasource,
   CalificacionRepository
 } from '../../domain';
 
 export class CalificacionRepositoryImpl implements CalificacionRepository {
+  constructor(private readonly datasource: CalificacionDatasource) {}
 
-  constructor(
-    private readonly datasource: CalificacionDatasource,
-  ) {}
-
-  create(createCalificacionDto: CreateCalificacionDto): Promise<CalificacionEntity> {
+  create(createCalificacionDto: CreateCalificacionDto): Promise<Calificacion> {
     return this.datasource.create(createCalificacionDto);
   }
 
-  getAll(): Promise<CalificacionEntity[]> {
+  findAll(): Promise<Calificacion[]> {
     return this.datasource.getAll();
   }
 
-  findById(id: number): Promise<CalificacionEntity> {
+  findById(id: number): Promise<Calificacion> {
     return this.datasource.findById(id);
   }
 
-  updateById(updateCalificacionDto: UpdateCalificacionDto): Promise<CalificacionEntity> {
-    return this.datasource.updateById(updateCalificacionDto);
+  update(calificacion: Calificacion): Promise<Calificacion> {
+    return this.datasource.update(calificacion);
   }
 
-  deleteById(id: number): Promise<CalificacionEntity> {
+  deleteById(id: number): Promise<Calificacion> {
     return this.datasource.deleteById(id);
   }
-
 }

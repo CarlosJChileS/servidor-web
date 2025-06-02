@@ -1,16 +1,16 @@
-import { TodoDatasource } from '../../domain';
-import { TodoDatasourceImpl } from './todo.datasource.impl';
-import { TodoTypeOrmDatasourceImpl } from './todo.typeorm.datasource.impl';
+import { CalificacionDatasource } from '../../domain';
+import { CalificacionTypeOrmDatasourceImpl } from './calificacion.typeorm.datasource.impl';
+import { CalificacionSequelizeDatasourceImpl } from './calificacion.sequelize.datasource.impl';
 
 export enum DatasourceType {
-    PRISMA = 'prisma',
-    TYPEORM = 'typeorm'
+    TYPEORM = 'typeorm',
+    SEQUELIZE = 'sequelize'
 }
 
 export class DatasourceConfig {
-    private static instance: TodoDatasource;
+    private static instance: CalificacionDatasource;
 
-    static getDatasource(type: DatasourceType = DatasourceType.PRISMA): TodoDatasource {
+    static getDatasource(type: DatasourceType = DatasourceType.TYPEORM): CalificacionDatasource {
         if (!this.instance) {
             this.instance = this.createDatasource(type);
         }
@@ -21,13 +21,13 @@ export class DatasourceConfig {
         this.instance = this.createDatasource(type);
     }
 
-    private static createDatasource(type: DatasourceType): TodoDatasource {
+    private static createDatasource(type: DatasourceType): CalificacionDatasource {
         switch (type) {
+            case DatasourceType.SEQUELIZE:
+                return new CalificacionSequelizeDatasourceImpl();
             case DatasourceType.TYPEORM:
-                return new TodoTypeOrmDatasourceImpl();
-            case DatasourceType.PRISMA:
             default:
-                return new TodoDatasourceImpl();
+                return new CalificacionTypeOrmDatasourceImpl();
         }
     }
-} 
+}
