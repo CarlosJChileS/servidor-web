@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nombre": "Vocabulario",
+    "descripcion": "Palabras clave",
+    "dificultad": 2
+  },
+  {
+    "id": 2,
+    "nombre": "Historia",
+    "descripcion": "Eventos importantes",
+    "dificultad": 3
+  }
+]

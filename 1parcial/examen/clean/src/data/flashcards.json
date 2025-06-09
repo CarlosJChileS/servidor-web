@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "pregunta": "¿Qué es JavaScript?",
+    "respuesta": "Un lenguaje de programación.",
+    "categorias": ["programación", "web"]
+  },
+  {
+    "id": 2,
+    "pregunta": "¿Qué es TypeScript?",
+    "respuesta": "Un superset de JavaScript que añade tipos.",
+    "categorias": ["programación"]
+  }
+]
