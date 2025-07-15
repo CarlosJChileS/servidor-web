@@ -79,5 +79,48 @@ practica3/
      ```
 3. Probar eventos (`create`, `list`, `update`, `delete`) según el nombre de la carpeta.
 
+## Ejemplos de eventos
 
-*Generado por Dwesk*
+A continuacion se muestran algunos ejemplos de eventos para cada recurso. Los namespaces siguen el patron `create...`, `list...`, `update...` y `delete...`.
+
+### Feedback
+```ts
+const socket = io("http://localhost:3000/feedback");
+
+socket.emit("createFeedback", { score: 5, comentario: "Genial", esManual: false });
+// el servidor emitira `feedbackCreated` con la lista completa
+
+socket.emit("listFeedbacks", null, (items) => {
+  console.log("Feedbacks", items);
+});
+
+socket.emit("updateFeedback", { id: "UUID", comentario: "Actualizado" });
+// se emitira `feedbackUpdated`
+
+socket.emit("deleteFeedback", "UUID");
+```
+
+### Grabacion
+```ts
+const socket = io("http://localhost:3000/grabacion");
+
+socket.emit("createGrabacion", { archivoAudio: "audio.mp3" });
+// => `grabacionCreated`
+
+socket.emit("listGrabaciones", null, (items) => console.log(items));
+```
+
+### Metrica
+```ts
+const socket = io("http://localhost:3000/metrica");
+
+socket.emit("createMetrica", { nombre: "Duracion" });
+// => `metricaCreated`
+socket.emit("listMetricas", null, items => console.log(items));
+
+socket.emit("updateMetrica", { id: "UUID", descripcion: "Nueva" });
+// => `metricaUpdated`
+
+socket.emit("deleteMetrica", "UUID");
+// => `metricaDeleted`
+```
