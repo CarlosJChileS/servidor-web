@@ -1,15 +1,8 @@
-# Practica3WS
-
 Práctica de CRUD en tiempo real con WebSockets (Socket.IO) y NestJS + TypeORM + SQLite.
 
 ## Descripción
 
-Esta práctica implementa tres recursos (`Feedback`, `Grabacion`, `Metrica`) expuestos como Gateways de WebSocket usando **Socket.IO**. Cada recurso ofrece operaciones CRUD en tiempo real:
-
-- **create...**: crea un nuevo registro y emite el evento `...Created` con la lista actualizada.
-- **list...**: lista todos los registros (mediante ack o emisión).
-- **update...**: actualiza un registro y emite `...Updated`.
-- **delete...**: elimina un registro y emite `...Deleted`.
+Esta práctica implementa tres recursos (`Feedback`, `Grabacion`, `Metrica`) expuestos como Gateways de WebSocket usando **Socket.IO**
 
 Se utiliza SQLite para almacenamiento y TypeORM para el mapeo objeto-relacional. Ideal para demostrar comunicaciones en tiempo real y arquitecturas event-driven.
 
@@ -31,7 +24,7 @@ practica3/
 
 ## Rubrica / Requisitos
 
-1. **Inicialización del proyecto**: NestJS sin repositorio Git interno (`--skip-git`).
+1. **Inicialización del proyecto**
 2. **Dependencias**: instalación de WebSockets, TypeORM, SQLite, mapped-types, class-validator, class-transformer.
 3. **Configuración de TypeORM**: `synchronize: true` para desarrollo.
 4. **Entidades**: definición de `Feedback`, `Grabacion` y `Metrica` con sus columnas y tipos.
