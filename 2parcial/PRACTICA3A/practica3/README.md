@@ -117,3 +117,5 @@ socket.emit("updateMetrica", { id: "UUID", descripcion: "Nueva" });
 socket.emit("deleteMetrica", "UUID");
 // => `metricaDeleted`
 ```
+# link 
+https://carloschile-3960732.postman.co/workspace/WS~7a4cfa24-cb9f-4630-8aeb-94ce7eae62e0/collection/6875f26db0deff8bd0976f19?action=share&creator=45071961
